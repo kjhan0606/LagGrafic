@@ -1,0 +1,37 @@
+erase
+ctype default
+
+notation -2 2 -2 2
+
+location 5000 30000 5000 30000
+
+limits -3 3  0.5 1.5
+ticksize -1 10 0.02 0.2
+expand 1.4
+lweight 3
+box
+
+lweight 2
+expand 1.1
+xlabel k/h (Mpc^3)
+ylabel dlnD^+/dlna
+
+data camb.z=47.ascii
+
+lines 5 794
+
+read { x 1 fc 5 fb 6}
+
+set lx = lg(x)
+
+ltype 0
+connect lx fc
+
+ltype 2
+connect lx fb
+
+relocate 1 0.92 label CDM
+relocate 1 1.22 label baryon
+
+relocate -2 0.8  label \Omega_m=0.26, \Omega_b=0.044, \Omega_{DE}=0.74
+relocate -2 0.75 label w_0=-0.8, w_a=-0.1, z=47
