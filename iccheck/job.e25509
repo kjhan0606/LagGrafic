@@ -1,0 +1,19 @@
+[proxy:0:2@a03] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:145): execvp error on file ./mpgrafic (No such file or directory)
+[proxy:0:20@a21] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:145): execvp error on file ./mpgrafic (No such file or directory)
+[proxy:0:20@a21] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/proxy/intel/i_proxy.c:124): downstream from host a22.localdomain exited with status 255
+[proxy:0:2@a03] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/proxy/intel/i_proxy.c:124): downstream from host a04.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:531): downstream from host a01.localdomain was killed by signal 9 (Killed)
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a05.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a07.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a09.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a11.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a13.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a15.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a17.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a19.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a23.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a25.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a27.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a29.localdomain exited with status 255
+[mpiexec@a01] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:527): downstream from host a51.localdomain exited with status 255
+[mpiexec@a01] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:2096): assert (exitcodes != NULL) failed

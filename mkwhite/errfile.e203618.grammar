@@ -1,0 +1,15 @@
+Removing debugger version 10.1.2
+Use `module list` to view any remaining dependent modules.
+Removing mpi version 2021.3.0
+Use `module list` to view any remaining dependent modules.
+Removing compiler version 2021.3.0
+Use `module list` to view any remaining dependent modules.
+Removing compiler-rt version 2021.3.0
+Use `module list` to view any remaining dependent modules.
+Removing tbb version 2021.3.0
+Use `module list` to view any remaining dependent modules.
+Loading compiler version 2021.3.0
+Loading tbb version 2021.3.0
+Loading compiler-rt version 2021.3.0
+Loading mpi version 2021.3.0
+Loading debugger version 10.1.2

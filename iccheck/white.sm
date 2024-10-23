@@ -1,0 +1,63 @@
+erase
+ctype default
+location 5000 30000 5000 30000
+notation -2 2 -2 2
+#limits -2.2 1.9 -3.2 -2.1
+limits -1.8 1.9 1.e-3 3.5e-3
+ticksize -1 10 1.e-4 5e-4
+expand 1.02
+lweight 3
+box
+expand 1.3
+xlabel k (Mpc^{-1})
+ylabel P_{white}(k) (Mpc)^3
+
+expand 1.2
+
+set hub = 0.684
+
+ltype 0
+lweight 3
+###########
+set size = 2048
+set boxsize = 262.144
+data ps_white.out
+set la =  {1 }
+set ca =  {0 blue red magenta}
+define pi (3.1415926535)
+do i = 0, dimen(la)-1 {
+set ll = $(la[$i])
+lines  $(ll) $(ll)
+read { a 1 }
+set start = $(ll)+2
+set width = $(size)/2 + $(start)-3
+lines $(start) $(width)
+read { x 1 y 2 pk 3 cor 4}
+set ly = lg(y*2*pi/$(boxsize))
+set cor = lg(cor)
+set pk = (pk*$(boxsize)**3)
+ctype $(ca[$i])
+#connect ly pk
+ptype 23 3
+points ly pk
+set z = 101/$(a[0]) - 1
+ctype default
+echo $(z[0])
+}
+#
+
+data mode.ps_white.out
+read { x 1 y 2 }
+
+set lx = lg(x*2*pi/$(boxsize))
+set ly = (y*$(boxsize)**3)
+
+ptype 4 1
+points lx ly
+
+ctype default
+limits 0 10 0 10
+relocate 1 1 label z=200
+relocate 1 2 label HR5 Cube
+relocate 1 1.5 label L_{box}= 262.144 cMpc
+ctype default

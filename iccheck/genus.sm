@@ -1,0 +1,97 @@
+erase
+ctype default
+
+
+location 5000 30000 5000 17000
+notation -2 2 -2 2
+limits -3 3 -1e5  2e5
+ticksize 0.2 1 1e4 5e4
+expand 1.02
+lweight 3
+box
+expand 1.3
+xlabel \\nu
+ylabel G(\\nu)
+
+expand 1.2
+
+
+data plot00.out01
+read { x 1 y 2}
+ptype 0 0
+ltype 0
+lweight 4
+expand 1.5
+connect x y
+
+
+ctype magenta
+#set x= -3, 3, 0.01
+#set y = 1.6e5 *(1-x*x)*exp(-0.5*x*x)
+#data analgenus.RG0.5.dat
+data analgenus.cdm.rg0.5.dat
+read { x 1 y 2}
+set y = y * 5764850.789471706924711936
+lweight 1
+expand 1
+connect x y
+
+ctype default
+expand 0.9
+lweight 2
+limits 0 10 0 10
+relocate 6 8.5 label L_{box}= 262.114 cMpc
+relocate 6 8 label R_G=0.5 cMpc
+relocate 6 7.5 label 2048^3 pixels
+relocate 6 7 label z=200, for cdm in LCDM
+
+lweight 1 expand 1 ctype magenta relocate 1 8  draw 2 8 relocate 2.5 7.9 expand 1.1 label theory
+lweight 4 expand 1.5 ctype default relocate 1 7.5  draw 2 7.5 relocate 2.5 7.4 expand 1.1 lweight 1 label IC den
+
+
+
+location 5000 30000 17000 29000
+notation -2 2 -2 2
+limits -3 3 -1e5  2e5
+ticksize 0.2 1 1e4 5e4
+expand 1.02
+lweight 3
+box 0 2 0 0
+expand 1.3
+#xlabel \\nu
+ylabel G(\\nu)
+
+expand 1.2
+
+
+data plot01.out01
+read { x 1 y 2}
+
+ptype 0 0
+ltype 0
+lweight 4
+expand 1.5
+connect x y
+
+
+ctype magenta
+#set x= -3, 3, 0.01
+#set y = 1.6e5 *(1-x*x)*exp(-0.5*x*x)
+data analgenus.baryon.rg0.5.dat
+read { x 1 y 2}
+set y = y * 5764850.789471706924711936
+lweight 1
+expand 1
+connect x y
+
+ctype default
+expand 0.9
+lweight 2
+limits 0 10 0 10
+relocate 6 8.5 label L_{box}= 262.114 cMpc
+relocate 6 8 label R_G=0.5 cMpc
+relocate 6 7.5 label 2048^3 pixels
+relocate 6 7 label z=200, for baryon in LCDM
+
+lweight 1 expand 1 ctype magenta relocate 1 8  draw 2 8 relocate 2.5 7.9 expand 1.1 label theory
+lweight 4 expand 1.5 ctype default relocate 1 7.5  draw 2 7.5 relocate 2.5 7.4 expand 1.1 lweight 1 label IC den

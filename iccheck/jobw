@@ -1,0 +1,55 @@
+#!/bin/sh
+### Job name
+#PBS -N pbs
+### Declare job non-rerunable
+#PBS -r n
+### Output files
+#PBS -j oe
+### Mail to user
+#PBS -m ae
+### Queue name (n1, n2, n4, n20)
+#PBS -q normal
+
+#PBS -l select=8:ncpus=8:mpiprocs=4:ompthreads=2
+### Walltime limit (hh:mm:ss)
+#PBS -l walltime=100480:00:00
+
+# This job's working directory
+echo Working directory is $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR
+
+echo Running on host `hostname`
+echo Time is `date`
+echo Directory is `pwd`
+echo This jobs runs on the following processors:
+echo `cat $PBS_NODEFILE`
+# Define number of processors
+NPROCS=`wc -l < $PBS_NODEFILE`
+
+## your parallel job
+
+export FI_PROVIDER=tcp
+
+mpirun -n $NPROCS ./mpgrafic  << LL
+5
+0.3 0.7 68.4
+0.047
+0.96
+-0.816
+camb.z=200.txt
+camb.z=0.txt
+0.01 100
+0.128
+1
+200
+0
+
+
+
+
+2
+821
+white.out
+0
+0
+LL
