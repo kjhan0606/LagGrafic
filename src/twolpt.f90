@@ -185,23 +185,23 @@ subroutine twolpt(plan,iplan,phi1, total_local_size,local_nz,local_z_start,dx,ph
 
   call fft_mpi(plan,phi2,total_local_size)
   ! final factor of -1/k^2
-! do k=1,local_nz
-!    kz = (k-1) + local_z_start
-!    if(kz .gt. n32) kz = kz-np3
-!    do j=1,np2
-!       ky = j - 1
-!       if(ky .gt. n22) ky = ky - np2
-!       do i=0,n12
-!          index = 2*i+1 + n2p1*int(j-1+np2*(k-1),8)
-!          wave2 = -(i*i/(Lx*Lx)+ky*ky/(Ly*Ly)+kz*kz/(Lz*Lz))*fourpi2
-!          invwave2 = 1.d0/wave2
-!          if(wave2 .lt.0) then
-!            phi2(index)     = phi2(index)*invwave2
-!            phi2(index+1)   = phi2(index+1)*invwave2
-!          else
-!            phi2(index)     = 0
-!            phi2(index+1)   = 0
-!          endif
+ do k=1,local_nz
+    kz = (k-1) + local_z_start
+    if(kz .gt. n32) kz = kz-np3
+    do j=1,np2
+       ky = j - 1
+       if(ky .gt. n22) ky = ky - np2
+       do i=0,n12
+          index = 2*i+1 + n2p1*int(j-1+np2*(k-1),8)
+          wave2 = -(i*i/(Lx*Lx)+ky*ky/(Ly*Ly)+kz*kz/(Lz*Lz))*fourpi2
+          invwave2 = 1.d0/wave2
+          if(wave2 .lt.0) then
+            phi2(index)     = phi2(index)*invwave2
+            phi2(index+1)   = phi2(index+1)*invwave2
+          else
+            phi2(index)     = 0
+            phi2(index+1)   = 0
+          endif
 !	   ! return to the gradient
 !          if(idim.eq.1) then
 !            ctemp = cmplx(phi2(index),phi2(index+1),kind=dpc)
@@ -219,9 +219,9 @@ subroutine twolpt(plan,iplan,phi1, total_local_size,local_nz,local_z_start,dx,ph
 !            phi2(index) = real(ctemp)
 !            phi2(index+1) = aimag(ctemp)
 !          endif
-!       enddo
-!    enddo
-! enddo
+       enddo
+    enddo
+ enddo
 
   deallocate(w1,w2)
   return
