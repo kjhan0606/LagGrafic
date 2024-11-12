@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+#SBATCH --job-name=mkwhite.exe
+#SBATCH --partition=normal
+##SBATCH --ntasks=250
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=1
+
+#SBATCH --time=1000000:00
+#SBATCH --output outfile.o%j.grammar
+#SBATCH --error errfile.e%j.grammar
+
+module purge
+module load  intel/compiler/latest
+module load intel/mpi/latest
+module load intel/debugger/latest
+
+# environmental variables
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi2.so
+#
+srun --mpi=pmi2  ./mkwhite.exe 

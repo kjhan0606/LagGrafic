@@ -1,0 +1,3 @@
+mpiifort -cpp -DDOUB -g -c -o grafic_types.o grafic_types.f90
+mpiifort -cpp -DDOUB -g -c -o mkwhite.o mkwhite.f90 -I.
+mpiifort  -cpp-DDOUB -g -o mkwhite.exe mkwhite.o grafic_types.o parallel_io.o -L/home/kjhan/local/lib -I/home/kjhan/local/include -lsrfftw_mpi -lsfftw_mpi -lsrfftw -lsfftw -L/usr/local/lib
